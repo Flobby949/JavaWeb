@@ -1,0 +1,7 @@
+<!ELEMENT 电脑 (hardware+)>
+<!ELEMENT hardware (name,price,GPU,CPU,RAM)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT CPU (#PCDATA)>
+<!ELEMENT GPU (#PCDATA)>
+<!ELEMENT RAM (#PCDATA)>

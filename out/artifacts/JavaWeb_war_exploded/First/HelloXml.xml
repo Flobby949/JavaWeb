@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 电脑 SYSTEM "HelloDTD.dtd">
+<电脑>
+    <hardware>
+        <name>LEGION</name>
+        <price>100000000000</price>
+        <GPU>RTX 3090</GPU>
+        <CPU>Intel 10900k</CPU>
+        <RAM>32G</RAM>
+    </hardware>
+</电脑>
