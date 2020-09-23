@@ -11,10 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<!--设置字符编码集-->
-<%
-    request.setCharacterEncoding("utf-8");
-%>
 <h2>服务器跳转指令</h2>
 <jsp:forward page="ParamDemo.jsp">
     <jsp:param name="name" value="aaaa"/>

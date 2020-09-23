@@ -15,8 +15,7 @@
 <%
     request.setCharacterEncoding("utf-8");
 %>
-
-<h1></h1>
+<%--<h1>地址栏传参</h1>--%>
 <h1>姓名：<%=request.getParameter("name") %></h1>
 <h2>年龄：<%=request.getParameter("age") %></h2>
 </body>

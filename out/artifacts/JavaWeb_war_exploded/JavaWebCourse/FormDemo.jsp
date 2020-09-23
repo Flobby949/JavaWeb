@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Flobby
   Date: 2020/9/18
-  Time: 10:41
+  Time: 11:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,12 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-<!--设置字符编码集-->
-<%
-    request.setCharacterEncoding("utf-8");
-%>
-<%--<h1>地址栏传参</h1>--%>
-<h1>姓名：<%=request.getParameter("name") %></h1>
-<h2>年龄：<%=request.getParameter("age") %></h2>
+<h2>表单传参</h2>
+<form action="ParamDemo.jsp" method="post">
+    姓名: <input type="text" name="name">
+    <br>
+    年龄: <input type="text" name="age">
+    <br>
+    <input type="submit" name="submit">
+</form>
 </body>
 </html>
