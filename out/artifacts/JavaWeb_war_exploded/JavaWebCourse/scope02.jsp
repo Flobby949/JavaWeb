@@ -11,7 +11,7 @@
     <title>scope22222</title>
 </head>
 <body>
-<jsp:forward page="scope3.jsp"></jsp:forward>
+<jsp:forward page="scope03.jsp"></jsp:forward>
 <%
     request.setCharacterEncoding("utf-8");
     /*获取page属性范围的数据值*/
