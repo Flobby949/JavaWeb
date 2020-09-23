@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %><%--
   Created by IntelliJ IDEA.
   User: Flobby
   Date: 2020/9/23
@@ -11,6 +12,7 @@
     <title>request获取参数</title>
 </head>
 <body>
+
 <form action="RequestDemo02.jsp" method="post">
 
     <!-- <form action="RequestDemo03.jsp" method="post"> -->
