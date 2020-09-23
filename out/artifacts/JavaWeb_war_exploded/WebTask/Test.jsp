@@ -14,7 +14,7 @@
 <div id="picture" align="center">
     <img id="logo" src="百度.jpg" width="300" >
     <br>
-    <img id="search" src="搜索框.jpg" width="470">
+    <img id="search" src="搜索框.jpg" width="550">
 </div>
 </body>
 </html>

@@ -16,5 +16,7 @@
 <jsp:include page="Test.jsp"/>
 <br><br><br>
 <jsp:include page="HotTopic.jsp"/>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<jsp:include page="Footer.jsp"/>
 </body>
 </html>
