@@ -15,7 +15,6 @@
     session.invalidate();
     response.sendRedirect("Login.jsp");
 %>
-
 <h2>如果没有发生跳转，请点击 <a href="Login.jsp">这里</a> </h2>
 </body>
 </html>
