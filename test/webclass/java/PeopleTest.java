@@ -3,6 +3,8 @@ package webclass.java;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 class PeopleTest {
@@ -52,5 +54,37 @@ class PeopleTest {
                 System.out.println(p3);
             }
         }
+    }
+
+    @Test
+    void Test04() throws Exception{
+        Class clazz = Class.forName("webclass.java.People");
+        Object p4 = clazz.newInstance();
+        //获得类中指定名称的属性
+        Field nameField = clazz.getDeclaredField("name");
+        //设置通过反射访问改属性时取消权限检查
+        nameField.setAccessible(true);
+        //用set方法为p对象指定属性赋值
+        nameField.set(p4,"啊三");
+
+        Field ageField = clazz.getDeclaredField("age");
+        ageField.setAccessible(true);
+        ageField.set(p4,25);
+
+        Field sexField = clazz.getDeclaredField("isBoy");
+        sexField.setAccessible(true);
+        sexField.set(p4,false);
+
+        System.out.println(p4);
+    }
+
+    @Test
+    void Test05() throws Exception{
+        Class clazz = Class.forName("webclass.java.People");
+        People p5 = (People) clazz.newInstance();
+        p5.setName("aaa");
+        Method method = clazz.getMethod("say", String.class);
+        String str = (String) method.invoke(p5,"good day");
+        System.out.println(str);
     }
 }

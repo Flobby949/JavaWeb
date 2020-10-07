@@ -8,9 +8,13 @@ package webclass.java;
  */
 
 public class People {
-    private String name;
-    private int age;
-    private boolean isBoy;
+    private String name = "三三";
+    private int age = 27;
+    private boolean isBoy = true;
+
+    public String say(String content){
+        return name+"说："+content;
+    }
 
     public People() {
     }
