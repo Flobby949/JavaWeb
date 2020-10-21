@@ -11,7 +11,7 @@
     <title>session</title>
 </head>
 <body>
-<form action="DoLogin.jsp" method="post">
+<form action="doLogin" method="post">
     用户名:<input type="text" name="name"><br>
     &nbsp;密码:&nbsp;&nbsp;<input type="password" name="password">
     <br>
@@ -19,8 +19,6 @@
     <input type="submit" value="提交">
     &nbsp;&nbsp;&nbsp;&nbsp;
     <input type="reset" value="重置">
-
 </form>
-
 </body>
 </html>

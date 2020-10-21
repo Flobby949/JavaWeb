@@ -11,7 +11,10 @@
     <title>欢迎</title>
 </head>
 <body>
-<%
+
+<H3>欢迎 ${sessionScope.name} -----------adafdsafasfasd</H3>
+
+<%--<%
     if (session.getAttribute("user") != null){
         %>
 欢迎<%=session.getAttribute("user")%>使用此系统！！！
@@ -21,6 +24,6 @@
     }else {
         response.sendRedirect("Login.jsp");
     }
-%>
+%>--%>
 </body>
 </html>

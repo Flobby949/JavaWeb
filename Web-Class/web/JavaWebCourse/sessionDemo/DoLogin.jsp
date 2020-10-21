@@ -21,10 +21,12 @@
         response.setHeader("refresh","3;URL=Welcome.jsp");
         out.println("用户名密码正确，即将跳转到欢迎界面");
     }else {
-        response.setHeader("refresh","3;URL=Login.jsp");
-        out.println("用户名密码错误，即将返回登录界面");
+        request.setAttribute("name",name);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("errorLogIn.jsp");
+        requestDispatcher.forward(request,response);
+        /*response.setHeader("refresh","3;URL=Login.jsp");
+        out.println("用户名密码错误，即将返回登录界面");*/
     }
-
 %>
 </body>
 </html>
