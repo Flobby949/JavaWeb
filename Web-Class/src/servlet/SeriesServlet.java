@@ -25,7 +25,7 @@ public class SeriesServlet extends HttpServlet {
         seriesBean.setFirstItem(firstItem);
         seriesBean.setVar(var);
         seriesBean.setNum(num);
-        seriesBean.setName("等差数列");
+        seriesBean.setName("公差");
         //求和
         int n = 1;
         double sum = 0;
@@ -50,7 +50,7 @@ public class SeriesServlet extends HttpServlet {
         seriesBean.setFirstItem(firstItem);
         seriesBean.setVar(var);
         seriesBean.setNum(num);
-        seriesBean.setName("等比数列");
+        seriesBean.setName("公比");
         //求和
         int n = 1;
         double sum = 0;

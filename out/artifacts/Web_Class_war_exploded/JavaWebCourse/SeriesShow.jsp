@@ -15,14 +15,14 @@
 <jsp:useBean id="seriesBean" type="webclass.beans.SeriesBean" scope="request"/>
 <table>
     <tr>
-        <th>${seriesBean.name}</th>
         <th>首项</th>
+        <th>${seriesBean.name}</th>
         <th>公差</th>
         <th>结果</th>
     </tr>
     <tr>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</td>
         <td>${seriesBean.firstItem}</td>
+        <td>${seriesBean.num}</td>
         <td>${seriesBean.var}</td>
         <td>${seriesBean.sum}</td>
     </tr>
