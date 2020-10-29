@@ -49,10 +49,10 @@ public class MyServlet extends HttpServlet {
         String servletName = config.getServletName();
 
         PrintWriter out = response.getWriter();
-        out.println("爱的色放纳斯卡的发挥了客户");
+        out.println("爱的色放纳斯卡的发挥了客户\n");
         out.println("参数："+param);
-        out.println("路径"+path);
-        out.println("名字"+servletName);
+        out.println("\n路径"+path);
+        out.println("\n名字"+servletName);
         out.flush();
         out.close();
     }

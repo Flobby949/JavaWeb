@@ -4,10 +4,7 @@ import webclass.java.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,6 +28,9 @@ public class LogInDoServlet extends HttpServlet {
 
         if ("123".equals(password)&&rand.equals(verifyCode)){
             UserInfo user = new UserInfo(account,password);
+            Cookie userInfo = new Cookie("auto",account+"-"+password);
+            userInfo.setMaxAge(30*24*60*60);
+            response.addCookie(userInfo);
             session.setAttribute("user",user);
             response.sendRedirect("/UserIndexServlet");
         }else {

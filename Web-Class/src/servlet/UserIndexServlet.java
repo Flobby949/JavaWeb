@@ -4,12 +4,11 @@ import webclass.java.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * @author Flobby
@@ -18,6 +17,9 @@ import java.io.PrintWriter;
 public class UserIndexServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -28,6 +30,8 @@ public class UserIndexServlet extends HttpServlet {
             out.println("欢迎您，"+user.getAccount()+"!");
             out.println("<a href='/layoutServlet'>退出</a>");
         }
+
+
 
     }
 
