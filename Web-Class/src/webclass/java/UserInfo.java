@@ -1,5 +1,8 @@
 package webclass.java;
 
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
 /**
  * @author Flobby
  * @version :1.0
@@ -10,6 +13,14 @@ package webclass.java;
 public class UserInfo {
     private String account;
     private String password;
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
     public UserInfo() {
     }

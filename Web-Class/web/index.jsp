@@ -1,4 +1,4 @@
-<%--
+<%@ page import="webclass.java.UserInfo" %><%--
   Created by IntelliJ IDEA.
   User: Flobby
   Date: 2020/9/9
@@ -12,5 +12,12 @@
   </head>
   <body>
   $web-class$
+  <%
+    UserInfo user1 = new UserInfo("张三","123");
+    UserInfo user2 = new UserInfo("李四","123");
+    session.setAttribute("user",user1);
+    session.setAttribute("user",user2);
+    session.removeAttribute("user");
+  %>
   </body>
 </html>
