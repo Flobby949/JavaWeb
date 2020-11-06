@@ -27,7 +27,6 @@ public class EncodingFilter implements Filter {
         //设定字符编码
         req.setCharacterEncoding(this.encoding);
         resp.setContentType("text/html;charset="+this.encoding);
-        System.out.println("encodingFilter");
         chain.doFilter(req, resp);
     }
 

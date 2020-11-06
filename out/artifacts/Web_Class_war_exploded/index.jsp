@@ -12,6 +12,8 @@
   </head>
   <body>
   $web-class$
+<%--
+过滤器IndexFliter
   <%
     UserInfo user1 = new UserInfo("张三","123");
     UserInfo user2 = new UserInfo("李四","123");
@@ -19,5 +21,7 @@
     session.setAttribute("user",user2);
     session.removeAttribute("user");
   %>
+
+--%>
   </body>
 </html>

@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Flobby
+ */
 @WebServlet(name = "SumOrProductServlet",urlPatterns = "/WebTask/sumOrProduct")
 public class SumOrProductServlet extends HttpServlet {
     @Override
