@@ -27,8 +27,10 @@
 <c:forTokens items="${str}" delims=", ;-" var="item">
     ${item}<br>
 </c:forTokens>
-<c:redirect url="/JavaWebCourse/SearchResult.jsp">
+
+<!--传参-->
+<%--<c:redirect url="/JavaWebCourse/SearchResult.jsp">
     <c:param name="name" value="sisisi"/>
-</c:redirect>
+</c:redirect>--%>
 </body>
 </html>
