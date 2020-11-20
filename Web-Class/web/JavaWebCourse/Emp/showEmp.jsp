@@ -11,7 +11,7 @@
 <head>
     <title>show</title>
     <meta name="viewport" content="width=device-width,initialcale=1">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
@@ -23,7 +23,7 @@
             <th>工资</th>
         </tr>
 
-        <c:forEach items="${empList}" var="emp">
+        <c:forEach items="${emplist}" var="emp">
             <tr>
                 <td>${emp.id}</td>
                 <td>${emp.name}</td>

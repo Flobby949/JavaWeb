@@ -11,8 +11,11 @@
     <title>insert</title>
 </head>
 <body>
-<form action="do_insert" method="post">
-    
+<form action="empServlet?action=insert" method="post">
+    姓名：<input type="text" name="name"><br>
+    工作：<input type="text" name="job"><br>
+    工资：<input type="text" name="sal"><br>
+    <input type="submit" value="提交">
 </form>
 </body>
 </html>

@@ -63,6 +63,11 @@ public class Emp {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Emp{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", job='" + job + '\'' +
+                ", sal=" + sal +
+                '}';
     }
 }

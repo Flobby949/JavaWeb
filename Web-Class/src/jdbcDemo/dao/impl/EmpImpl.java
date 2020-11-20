@@ -46,17 +46,57 @@ public class EmpImpl implements EmpDao {
 
     @Override
     public List<Emp> searchByName(String keywords) throws SQLException {
-        return null;
+        conn = DBConnect.getInitDBConnect().getConnection();
+        sql = "SELECT * FROM tb_emp WHERE name=?";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setString(1,keywords);
+        resultSet = preparedStatement.executeQuery();
+        List<Emp> empList = new ArrayList<>();
+        while (resultSet.next()){
+            int id = resultSet.getInt(1);
+            String name = resultSet.getString(2);
+            String job = resultSet.getString("job");
+            double sal = resultSet.getDouble(4);
+            Emp emp = new Emp(id,name,job,sal);
+            empList.add(emp);
+        }
+        resultSet.close();
+        preparedStatement.close();
+        conn.close();
+        return empList;
     }
 
     @Override
-    public Emp searchById(String id) throws SQLException {
-        return null;
+    public Emp searchById(int id) throws SQLException {
+        conn = DBConnect.getInitDBConnect().getConnection();
+        sql = "SELECT * FROM tb_emp WHERE id=?";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setInt(1,id);
+        resultSet = preparedStatement.executeQuery();
+        Emp emp = new Emp();
+        while (resultSet.next()){
+            id = resultSet.getInt(1);
+            String name = resultSet.getString(2);
+            String job = resultSet.getString("job");
+            double sal = resultSet.getDouble(4);
+            emp = new Emp(id,name,job,sal);
+        }
+        return emp;
     }
 
     @Override
     public int updateById(int id, Emp emp) throws SQLException {
-        return 0;
+        int effectLine = 0;
+        conn = DBConnect.getInitDBConnect().getConnection();
+        sql = "UPDATE tb_emp SET name=?, job=?, sal=? WHERE id=?";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setString(1,emp.getName());
+        preparedStatement.setString(2,emp.getJob());
+        preparedStatement.setDouble(3,emp.getSal());
+        preparedStatement.setInt(4,emp.getId());
+        effectLine = preparedStatement.executeUpdate();
+        conn.close();
+        return effectLine;
     }
 
     @Override
@@ -75,6 +115,13 @@ public class EmpImpl implements EmpDao {
 
     @Override
     public int deleteById(int id) throws SQLException {
-        return 0;
+        int effectLine = 0;
+        conn = DBConnect.getInitDBConnect().getConnection();
+        String sql = "DELETE FROM tb_emp WHERE id=?";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setInt(1,id);
+        effectLine = preparedStatement.executeUpdate();
+        conn.close();
+        return effectLine;
     }
 }

@@ -23,14 +23,25 @@ class EmpImplTest {
 
     @Test
     void searchByName() {
+        try {
+            List<Emp> list = empDao.searchByName("张三");
+            list.forEach(emp -> System.out.println(emp));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    void searchById() {
+    void searchById() throws SQLException {
+        Emp emp = empDao.searchById(1);
+        System.out.println(emp.getName());
     }
 
     @Test
-    void updateById() {
+    void updateById() throws SQLException {
+        Emp emp = new Emp(34,"feifeifei","fei",456164);
+        int effectLine = empDao.updateById(34,emp);
+        assertEquals(1,effectLine);
     }
 
     @Test
@@ -41,6 +52,8 @@ class EmpImplTest {
     }
 
     @Test
-    void deleteById() {
+    void deleteById() throws SQLException {
+        int effectLine = empDao.deleteById(41);
+        assertEquals(1,effectLine);
     }
 }

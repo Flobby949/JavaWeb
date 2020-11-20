@@ -9,7 +9,7 @@ public interface EmpDao {
 
     List<Emp> searchByName(String keywords)throws SQLException;
 
-    Emp searchById(String id)throws SQLException;
+    Emp searchById(int id)throws SQLException;
 
     int updateById(int id,Emp emp)throws SQLException;
 

@@ -1,7 +1,9 @@
 package jdbcDemo.factory;
 
 import jdbcDemo.dao.EmpDao;
+import jdbcDemo.dao.UserDao;
 import jdbcDemo.dao.impl.EmpImpl;
+import jdbcDemo.dao.impl.UserImpl;
 
 /**
  * @author :Flobby
@@ -13,5 +15,9 @@ import jdbcDemo.dao.impl.EmpImpl;
 public class DaoFactory {
     public static EmpDao getEmpDaoInstance() throws Exception{
         return new EmpImpl();
+    }
+
+    public static UserDao getUserDaoInstance() throws Exception{
+        return new UserImpl();
     }
 }
