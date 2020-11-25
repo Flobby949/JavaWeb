@@ -4,7 +4,6 @@ import jdbcDemo.bean.Emp;
 import jdbcDemo.factory.DaoFactory;
 import jdbcDemo.service.EmpService;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**

@@ -15,7 +15,7 @@
     请选择头像:<input type="file" name="head"><br><br>
     请输入用户名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username"><br>
     请输入密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="pw1"><br>
-    请再次输入密码:&nbsp;&nbsp;<input type="password" name="pw1"><br>
+    请再次输入密码:&nbsp;&nbsp;<input type="password" name="pw2"><br>
     <input type="submit" value="注册">
 </form>
 </body>

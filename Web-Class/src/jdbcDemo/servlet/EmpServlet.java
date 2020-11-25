@@ -1,10 +1,9 @@
 package jdbcDemo.servlet;
 
-import com.mysql.cj.xdevapi.SessionFactory;
 import jdbcDemo.bean.Emp;
-import jdbcDemo.dao.EmpDao;
-import jdbcDemo.dao.impl.EmpImpl;
+import jdbcDemo.bean.User;
 import jdbcDemo.factory.ServiceFactory;
+import lombok.SneakyThrows;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -22,6 +20,7 @@ import java.util.List;
  */
 @WebServlet(name = "EmpServlet", urlPatterns = {"/JavaWebCourse/Emp/empServlet"})
 public class EmpServlet extends HttpServlet {
+    @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -40,7 +39,7 @@ public class EmpServlet extends HttpServlet {
         }else if ("login".equals(action)){
             logIn(request,response);
         }else if ("register".equals(action)){
-            register(request,response);
+                register(request,response);
         }
     }
 
@@ -146,11 +145,44 @@ public class EmpServlet extends HttpServlet {
     }
 
     protected void logIn(HttpServletRequest request, HttpServletResponse response){
-
+        String name = request.getParameter("username");
+        String password = request.getParameter("password");
+        try {
+            boolean flag = ServiceFactory.getUserServiceInstance().getUser(name,password);
+            if (flag){
+                response.getWriter().println("<script language=javascript>" +
+                        "alert('登录成功');" +
+                        "window.location.href='EmpIndex.jsp';" +
+                        "</script>");
+            }else {
+                response.getWriter().println("<script language=javascript>" +
+                        "alert('账号错误，请重新登录或注册');" +
+                        "window.location.href='LogIn.jsp';" +
+                        "</script>");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("error");
+        }
     }
 
-    protected void register(HttpServletRequest request, HttpServletResponse response){
-
+    protected void register(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String name = request.getParameter("username");
+        String pw1 = request.getParameter("pw1");
+        String pw2 = request.getParameter("pw2");
+        if (pw1.equals(pw2)){
+            User user = new User(name,pw1);
+            ServiceFactory.getUserServiceInstance().addUser(user);
+            response.getWriter().println("<script language=javascript>" +
+                    "alert('注册成功');" +
+                    "window.location.href='EmpIndex.jsp';" +
+                    "</script>");
+        }else {
+            response.getWriter().println("<script language=javascript>" +
+                    "alert('注册失败，两次密码错误');" +
+                    "window.location.href='Register.jsp';" +
+                    "</script>");
+        }
     }
 
 

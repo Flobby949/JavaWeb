@@ -2,6 +2,8 @@ package jdbcDemo.service;
 
 import jdbcDemo.bean.User;
 
+import java.util.List;
+
 /**
  * @author :Flobby
  * @version :1.0
@@ -10,6 +12,7 @@ import jdbcDemo.bean.User;
  */
 
 public interface UserService {
-    int addUser(User user);
+    int addUser(User user) throws Exception;
     int addHead(String head);
+    boolean getUser(String name, String password) throws Exception;
 }
