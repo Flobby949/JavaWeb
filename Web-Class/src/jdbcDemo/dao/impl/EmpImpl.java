@@ -73,14 +73,17 @@ public class EmpImpl implements EmpDao {
         preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         resultSet = preparedStatement.executeQuery();
-        Emp emp = new Emp();
+        Emp emp = null;
         while (resultSet.next()){
-            id = resultSet.getInt(1);
+            int id1 = resultSet.getInt(1);
             String name = resultSet.getString(2);
             String job = resultSet.getString("job");
             double sal = resultSet.getDouble(4);
-            emp = new Emp(id,name,job,sal);
+            emp = new Emp(id1,name,job,sal);
         }
+        resultSet.close();
+        preparedStatement.close();
+        conn.close();
         return emp;
     }
 

@@ -33,8 +33,13 @@ class EmpImplTest {
 
     @Test
     void searchById() throws SQLException {
-        Emp emp = empDao.searchById(1);
-        System.out.println(emp.getName());
+        Emp emp = empDao.searchById(0);
+        if (emp!=null){
+            System.out.println(emp.getName());
+        }else {
+            System.out.println("不存在");
+        }
+
     }
 
     @Test

@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width,initialcale=1">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
-<jsp:useBean id="pagination" class="webclass.java.MyPagination" scope="session"/>
+<%--<jsp:useBean id="pagination" class="webclass.java.MyPagination" scope="session"/>
 <%
     String str = request.getParameter("Page");
     int Page = 1;
@@ -30,7 +30,7 @@
         empList = pagination.getAppointPage(Page);
     }
     pageContext.setAttribute("emp", empList);
-%>
+%>--%>
 <body>
 
 <div class="container">
@@ -44,7 +44,7 @@
             <th>操作二</th>
         </tr>
 
-        <c:forEach items="${emp}" var="emp">
+<%--        <c:forEach items="${emp}" var="emp">--%>
             <tr>
                 <td>${emp.id}</td>
                 <td>${emp.name}</td>
@@ -53,10 +53,10 @@
                 <td><a href="empServlet?action=deleteById&id=${emp.id}">删除</a> </td>
                 <td><a href="EmpUpdate.jsp?id=${emp.id}">修改信息</a> </td>
             </tr>
-        </c:forEach>
+<%--        </c:forEach>--%>
     </table>
 </div>
-<%=pagination.printCtrl(Page)%>
+<%--<%=pagination.printCtrl(Page)%>--%>
 <br>
 <footer>
     <h1 align="center"><a href="EmpIndex.jsp">返回</a></h1>

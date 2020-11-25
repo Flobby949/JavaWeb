@@ -132,12 +132,21 @@ public class EmpServlet extends HttpServlet {
 
     protected void searchById(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
+        String idStr=request.getParameter("id");
+        int id=Integer.parseInt(idStr.trim());
         try {
             Emp emp = ServiceFactory.getEmpServiceInstance().searchById(id);
+            System.out.println(emp);
             session.setAttribute("emp",emp);
-            String path = "SearchPages.jsp";
-            response.sendRedirect(path);
+            if (emp!=null){
+                String path = "SearchPages.jsp";
+                response.sendRedirect(path);
+            }else {
+                response.getWriter().println("<script language=javascript>" +
+                        "alert('查无此编号');" +
+                        "window.location.href='EmpIndex.jsp';" +
+                        "</script>");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("出错了");

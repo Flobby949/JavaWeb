@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width,initialcale=1">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
-<jsp:useBean id="pagination" class="webclass.java.MyPagination" scope="session"/>
+<%--<jsp:useBean id="pagination" class="webclass.java.MyPagination" scope="session"/>
 <%
     String str = request.getParameter("Page");
     int Page = 1;
@@ -27,7 +27,7 @@
         empList = pagination.getAppointPage(Page);
     }
     pageContext.setAttribute("emplist",empList);
-%>
+%>--%>
 <body>
 <nav>
     <br>
@@ -44,7 +44,8 @@
         <input type="submit" value="按名称查找">
     </form>
 
-    <form action="empServlet?action=searchById" method="post">
+    <form action="empServlet" method="post">
+        <input type="hidden" name="action" value="searchById">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" name="id">
         <input type="submit" value="按编号查找">
@@ -73,7 +74,7 @@
         </c:forEach>
     </table>
 </div>
-<%=pagination.printCtrl(Page)%>
+<%--<%=pagination.printCtrl(Page)%>--%>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
