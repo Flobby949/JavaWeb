@@ -39,7 +39,7 @@ public class EmpServlet extends HttpServlet {
         }else if ("login".equals(action)){
             logIn(request,response);
         }else if ("register".equals(action)){
-                register(request,response);
+            register(request,response);
         }
     }
 
@@ -122,8 +122,15 @@ public class EmpServlet extends HttpServlet {
         try {
             List<Emp> emp = ServiceFactory.getEmpServiceInstance().searchByName(name);
             session.setAttribute("emplist",emp);
-            String path = "showPages.jsp";
-            response.sendRedirect(path);
+            if (!emp.isEmpty()){
+                String path = "showPages.jsp";
+                response.sendRedirect(path);
+            }else {
+                response.getWriter().println("<script language=javascript>" +
+                        "alert('查无此名称');" +
+                        "window.location.href='EmpIndex.jsp';" +
+                        "</script>");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("出错了");
@@ -136,7 +143,6 @@ public class EmpServlet extends HttpServlet {
         int id=Integer.parseInt(idStr.trim());
         try {
             Emp emp = ServiceFactory.getEmpServiceInstance().searchById(id);
-            System.out.println(emp);
             session.setAttribute("emp",emp);
             if (emp!=null){
                 String path = "SearchPages.jsp";
@@ -158,6 +164,8 @@ public class EmpServlet extends HttpServlet {
         String password = request.getParameter("password");
         try {
             boolean flag = ServiceFactory.getUserServiceInstance().getUser(name,password);
+            String avatar = ServiceFactory.getUserServiceInstance().getHead(name);
+            request.getSession().setAttribute("avatar",avatar);
             if (flag){
                 response.getWriter().println("<script language=javascript>" +
                         "alert('登录成功');" +
@@ -176,24 +184,26 @@ public class EmpServlet extends HttpServlet {
     }
 
     protected void register(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String avatar = request.getParameter("image");
         String name = request.getParameter("username");
         String pw1 = request.getParameter("pw1");
         String pw2 = request.getParameter("pw2");
         if (pw1.equals(pw2)){
-            User user = new User(name,pw1);
+            User user = new User(avatar,name,pw1);
             ServiceFactory.getUserServiceInstance().addUser(user);
+            request.getSession().setAttribute("avatar",avatar);
             response.getWriter().println("<script language=javascript>" +
                     "alert('注册成功');" +
-                    "window.location.href='EmpIndex.jsp';" +
+//                    "window.location.href='EmpIndex.jsp';" +
                     "</script>");
+            request.getRequestDispatcher("EmpIndex.jsp").forward(request,response);
         }else {
             response.getWriter().println("<script language=javascript>" +
-                    "alert('注册失败，两次密码错误');" +
+                    "alert('注册失败，两次密码不同');" +
                     "window.location.href='Register.jsp';" +
                     "</script>");
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -21,8 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int addHead(String head) {
-        return 0;
+    public String getHead(String name) throws Exception {
+        String head = DaoFactory.getUserDaoInstance().getHead(name);
+        return head;
     }
 
     @Override

@@ -2,8 +2,9 @@ package jdbcDemo.dao.impl;
 
 import jdbcDemo.bean.User;
 import jdbcDemo.dao.UserDao;
-import jdbcDemo.utill.DBConnect;
+import jdbcDemo.servlet.DBConnect;
 
+import javax.naming.Name;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,18 +27,28 @@ public class UserImpl implements UserDao {
     public int addUser(User user) throws SQLException {
         int effectLine = 0;
         conn = DBConnect.getInitDBConnect().getConnection();
-        sql = "INSERT INTO tb_user(id,head,name,password) VALUES(id,head,?,?)";
+        sql = "INSERT INTO tb_user(id,head,name,password) VALUES(id,?,?,?)";
         preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1,user.getName());
-        preparedStatement.setString(2,user.getPassword());
+        preparedStatement.setString(1,user.getHead());
+        preparedStatement.setString(2,user.getName());
+        preparedStatement.setString(3,user.getPassword());
         effectLine = preparedStatement.executeUpdate();
         conn.close();
         return effectLine;
     }
 
     @Override
-    public int addHead(String head) {
-        return 0;
+    public String getHead(String name) throws SQLException {
+        conn = DBConnect.getInitDBConnect().getConnection();
+        sql="SELECT head FROM tb_user WHERE name=?";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setString(1, name);
+        resultSet = preparedStatement.executeQuery();
+        String head = null;
+        while (resultSet.next()){
+            head = resultSet.getString(1);
+        }
+        return head;
     }
 
     @Override

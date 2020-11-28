@@ -32,7 +32,11 @@
     pageContext.setAttribute("emp", empList);
 %>--%>
 <body>
-
+<header>
+    <a href="EmpIndex.jsp">
+        <img src="${avatar}" width="60" height="60" style="margin: 25px 45%">
+    </a>
+</header>
 <div class="container">
     <table class="table table-hover table-striped">
         <tr>
@@ -58,9 +62,6 @@
 </div>
 <%--<%=pagination.printCtrl(Page)%>--%>
 <br>
-<footer>
-    <h1 align="center"><a href="EmpIndex.jsp">返回</a></h1>
-</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -13,6 +13,6 @@ import java.util.List;
 
 public interface UserService {
     int addUser(User user) throws Exception;
-    int addHead(String head);
+    String getHead(String name) throws Exception;
     boolean getUser(String name, String password) throws Exception;
 }

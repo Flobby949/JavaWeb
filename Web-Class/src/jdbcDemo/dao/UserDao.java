@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface UserDao {
     int addUser(User user) throws SQLException;
-    int addHead(String head);
+    String getHead(String name) throws SQLException;
     boolean getUser(String name,String password) throws SQLException;
 }

@@ -17,10 +17,10 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String password, String head) {
+    public User(String head,String name,String password) {
+        this.head = head;
         this.name = name;
         this.password = password;
-        this.head = head;
     }
 
     public String getHead() {

@@ -2,7 +2,7 @@ package jdbcDemo.dao.impl;
 
 import jdbcDemo.bean.Emp;
 import jdbcDemo.dao.EmpDao;
-import jdbcDemo.utill.DBConnect;
+import jdbcDemo.servlet.DBConnect;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
