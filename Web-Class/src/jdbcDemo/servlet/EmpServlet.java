@@ -160,20 +160,24 @@ public class EmpServlet extends HttpServlet {
     }
 
     protected void logIn(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        String rand = (String) session.getAttribute("verifyCode");
         String name = request.getParameter("username");
         String password = request.getParameter("password");
+        String verifyCode = request.getParameter("verifyCode");
+
         try {
             boolean flag = ServiceFactory.getUserServiceInstance().getUser(name,password);
             String avatar = ServiceFactory.getUserServiceInstance().getHead(name);
             request.getSession().setAttribute("avatar",avatar);
-            if (flag){
+            if (flag&&rand.equals(verifyCode)){
                 response.getWriter().println("<script language=javascript>" +
                         "alert('登录成功');" +
                         "window.location.href='EmpIndex.jsp';" +
                         "</script>");
             }else {
                 response.getWriter().println("<script language=javascript>" +
-                        "alert('账号错误，请重新登录或注册');" +
+                        "alert('账号或验证码有误，请重新登录或注册');" +
                         "window.location.href='LogIn.jsp';" +
                         "</script>");
             }

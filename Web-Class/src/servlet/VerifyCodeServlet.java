@@ -88,7 +88,7 @@ public class VerifyCodeServlet extends HttpServlet {
         g.setColor(new Color(0xDCDCDC));
         g.fillRect(0,0,WIDTH,HEIGHT);
 //        随机产生i个干扰点
-        for(int i=0;i<10000;i++){
+        for(int i=0;i<1000;i++){
             int x=random.nextInt(WIDTH);
             int y=random.nextInt(HEIGHT);
             int red=random.nextInt(255);

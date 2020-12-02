@@ -28,9 +28,6 @@ public class UserIndexServlet extends HttpServlet {
             out.println("欢迎您，"+user.getAccount()+"!");
             out.println("<a href='/layoutServlet'>退出</a>");
         }
-
-
-
     }
 
     @Override

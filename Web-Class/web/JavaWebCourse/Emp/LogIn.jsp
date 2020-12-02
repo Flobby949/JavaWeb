@@ -17,6 +17,10 @@
     <br>
     &nbsp;&nbsp;用户名:&nbsp;&nbsp;<input type="text" name="username"><br><br>
     &nbsp;&nbsp;密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password"><br><br>
+    验证码：<input type="text" name="verifyCode">
+    <img name="verifyCode" src="/verifyCode" onclick="this.src = this.src + '?'">
+    <a href="javascript:document.verifyCode.onclick();">换一张</a>
+    <br><br>
     &nbsp;&nbsp;<input type="submit" value="登录">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;<a href="Register.jsp">注册</a>
 </form>

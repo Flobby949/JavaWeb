@@ -1,7 +1,5 @@
 package webclass.beans;
 
-import sun.management.Agent;
-
 /**
  * @author Flobby
  * @version :1.0
